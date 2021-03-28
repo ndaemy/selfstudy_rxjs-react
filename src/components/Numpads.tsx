@@ -6,7 +6,7 @@ interface ButtonProps {
 
 const Self = styled.div`
   display: grid;
-  width: 360px;
+  width: 292px;
   grid-template-columns: repeat(4, 1fr);
   grid-row-gap: 12px;
   grid-column-gap: 12px;
@@ -16,11 +16,12 @@ const Self = styled.div`
 
 const Button = styled.button<ButtonProps>`
   font-size: 18px;
-  width: 64px;
+  width: ${props =>
+    props.column ? props.column * 64 + (props.column - 1) * 12 + 'px' : '64px'};
   height: 64px;
   margin: 0 auto;
-  border: 1px solid black;
-  border-radius: 6px;
+  padding: 0;
+  border-radius: 32px;
 
   grid-column: span ${props => props.column || 1};
 `;
